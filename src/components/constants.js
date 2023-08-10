@@ -1,4 +1,4 @@
-export const BACKEND_URL = "http://localhost:5000/api/game-info";
+export const BACKEND_URL = "http://localhost:9000/api/game-info";
 export const GAMENAMES = {
   GOD_OF_FORTUNE: "God Of Fortune",
   WILD_WEST_SALOON: "Wild West Saloon",
