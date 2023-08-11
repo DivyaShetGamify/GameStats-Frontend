@@ -15,7 +15,8 @@ const Container = styled.div`
   margin-left: 13%;
 `;
 
-const BarGraph = ({ data, header }) => {
+const BarGraph = ({ data, header, gameInfo }) => {
+  console.log(gameInfo);
   return (
     <Container>
       <h1>{header}</h1>
@@ -30,6 +31,20 @@ const BarGraph = ({ data, header }) => {
           style={{ fontSize: "12px" }}
         />
         {/* <YAxis ticks={yTicks} /> */}
+        <YAxis
+          domain={[0, "dataMax"]} // Set the Y-axis domain dynamically
+          label={{
+            value: gameInfo,
+            angle: -90,
+            position: "insideLeft",
+            dx: -5,
+            dy: 13,
+            fontSize: 14,
+            fill: "#000000",
+          }}
+          style={{ fontSize: "10px" }}
+          tickFormatter={(value) => `${value}`} // Format Y-axis tick labels
+        />
         <Tooltip />
         <Legend />
         <Bar dataKey="value" fill="rgba(75,192,192,0.4)" />

@@ -3,7 +3,7 @@ import BarGraph from "./components/BarGraph";
 import Input from "./components/Input";
 import axios from "axios";
 import styled from "styled-components";
-import {BACKEND_URL} from './components/constants'
+import { BACKEND_URL } from "./components/constants";
 
 // const results = {
 //   isError: false,
@@ -64,13 +64,15 @@ const App = () => {
     const fetchData = async () => {
       try {
         const baseUrl = BACKEND_URL;
-        console.log(process.env.REACT_APP_BACKEND_URL,"baseUrl");
+        console.log(process.env.REACT_APP_BACKEND_URL, "baseUrl");
         const queryParams = {
           startDate: payload.startDate,
           endDate: payload.endDate,
           game: payload.game,
           gameInfo: payload.gameInfo,
         };
+
+        console.log("queryParams",queryParams);
         const results = await axios.get(baseUrl, { params: queryParams });
         console.log("api ka result", results.data);
         setResult(results.data);
@@ -86,7 +88,13 @@ const App = () => {
   return (
     <div>
       <Input onDataReady={handleData} />
-      {display && <BarGraph data={data} header={result.message} />}
+      {display && (
+        <BarGraph
+          data={data}
+          header={result.message}
+          gameInfo={payload.gameInfo}
+        />
+      )}
       {!display && <Header>Please fill the above fields to continue</Header>}
     </div>
   );

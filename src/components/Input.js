@@ -32,7 +32,7 @@ import { GAMENAMES } from "./constants";
 
 const Container = styled.div`
   margin-top: 5%;
-  margin-left: 17%;
+  margin-left: 10%;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -43,7 +43,8 @@ const Label = styled.label`
 `;
 
 const DateInput = styled.input`
-  padding: 5px;
+  padding: 2px;
+  width: 140px;
 `;
 
 const Select = styled.select`
@@ -94,22 +95,6 @@ const Input = ({ onDataReady }) => {
 
   return (
     <Container>
-      <Label>From</Label>
-      <DateInput
-        type="date"
-        name="startDate"
-        value={payload.startDate}
-        onChange={handleChange}
-      />
-      <Label>To</Label>
-      <DateInput
-        type="date"
-        name="endDate"
-        value={payload.endDate}
-        onChange={handleChange}
-      />
-      {error && <ErrorMessage>{error}</ErrorMessage>}
-      <div style={{ margin: "10px 0" }} />
       <Label>Game Name</Label>
       <Select name="game" value={payload.game} onChange={handleChange}>
         {Object.values(GAMENAMES).map((value) => (
@@ -118,13 +103,30 @@ const Input = ({ onDataReady }) => {
           </Option>
         ))}
       </Select>
+      <Label>From</Label>
+      <DateInput
+        type="month"
+        name="startDate"
+        value={payload.startDate}
+        onChange={handleChange}
+      />
+      <Label>To</Label>
+      <DateInput
+        type="month"
+        name="endDate"
+        value={payload.endDate}
+        onChange={handleChange}
+      />
+      {error && <ErrorMessage>{error}</ErrorMessage>}
+      <div style={{ margin: "10px 0" }} />
+      
       <Select name="gameInfo" value={payload.gameInfo} onChange={handleChange}>
         <Option value="betCount">Bet Count</Option>
         <Option value="playerCount">Player Count</Option>
-        <Option value="betAmount">Bet Amount</Option>
-        <Option value="payout">Payout</Option>
         <Option value="rtp">RTP</Option>
-        <Option value="profit">Profit</Option>
+        <Option value="betAmount">Bet Amount - Payout = Profit</Option>
+        {/* <Option value="payout">Payout</Option> */}
+        {/* <Option value="profit">Profit</Option> */}
       </Select>
       <Button onClick={handleClick}>Search</Button>
     </Container>
