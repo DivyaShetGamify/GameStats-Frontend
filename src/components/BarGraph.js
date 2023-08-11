@@ -6,7 +6,6 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
 } from "recharts";
 import styled from "styled-components";
 
@@ -20,8 +19,8 @@ const BarGraph = ({ data, header, gameInfo }) => {
   return (
     <Container>
       <h1>{header}</h1>
-      <BarChart width={1000} height={400} data={data}>
-        <CartesianGrid strokeDasharray="3 3" />
+      <BarChart width={1000} height={400} data={data} >
+        <CartesianGrid strokeDasharray="3 3"/>
         {/* <XAxis dataKey="label" /> */}
         <XAxis
           dataKey="label"
@@ -29,10 +28,12 @@ const BarGraph = ({ data, header, gameInfo }) => {
           interval={0}
           tickMargin={25}
           style={{ fontSize: "12px" }}
+          height={60}
         />
         {/* <YAxis ticks={yTicks} /> */}
         <YAxis
-          domain={[0, "dataMax"]} // Set the Y-axis domain dynamically
+          // domain={[0, "dataMax"]} // Set the Y-axis domain dynamically
+          domain={['auto', 'auto']}
           label={{
             value: gameInfo,
             angle: -90,
@@ -46,8 +47,15 @@ const BarGraph = ({ data, header, gameInfo }) => {
           tickFormatter={(value) => `${value}`} // Format Y-axis tick labels
         />
         <Tooltip />
-        <Legend />
-        <Bar dataKey="value" fill="rgba(75,192,192,0.4)" />
+        {/* <Legend/> */}
+        {/* <Legend width={100} wrapperStyle={{ top: 0, left: 0, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }}/> */}
+        {/* <Legend
+          layout="vertical"
+          verticalAlign="top"
+          align="right"
+        /> */}
+        
+        <Bar dataKey="value" fill="#8884d8"  />
       </BarChart>
     </Container>
   );
