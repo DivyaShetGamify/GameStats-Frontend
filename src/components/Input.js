@@ -128,7 +128,7 @@ const Input = ({ onDataReady }) => {
         {/* <Option value="payout">Payout</Option> */}
         {/* <Option value="profit">Profit</Option> */}
       </Select>
-      <Button onClick={handleClick}>Search</Button>
+      <Button onClick={handleClick}>Display Graph</Button>
     </Container>
   );
 };
