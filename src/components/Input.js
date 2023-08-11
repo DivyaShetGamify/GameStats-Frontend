@@ -66,7 +66,7 @@ const Input = ({ onDataReady }) => {
     startDate: "",
     endDate: "",
     game: "God Of Fortune",
-    gameInfo: "betCount",
+    gameInfo: "Bet Count",
   });
 
   const [error, setError] = useState("");
@@ -121,10 +121,10 @@ const Input = ({ onDataReady }) => {
       <div style={{ margin: "10px 0" }} />
       
       <Select name="gameInfo" value={payload.gameInfo} onChange={handleChange}>
-        <Option value="betCount">Bet Count</Option>
-        <Option value="playerCount">Player Count</Option>
-        <Option value="rtp">RTP</Option>
-        <Option value="betAmount">Bet Amount - Payout = Profit</Option>
+        <Option value="Bet Count">Bet Count</Option>
+        <Option value="Player Count">Player Count</Option>
+        <Option value="RTP">RTP</Option>
+        <Option value="Bet Amount">Bet Amount - Payout = Profit</Option>
         {/* <Option value="payout">Payout</Option> */}
         {/* <Option value="profit">Profit</Option> */}
       </Select>
