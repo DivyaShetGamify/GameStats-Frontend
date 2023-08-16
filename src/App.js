@@ -5,35 +5,10 @@ import axios from "axios";
 import styled from "styled-components";
 import { BACKEND_URL } from "./components/constants";
 
-// const results = {
-//   isError: false,
-//   message: "Every month's betCount",
-//   data: {
-//     "2023-06-01": 6199559,
-//     "2022-10-01": 1294548,
-//     "2022-07-01": 548607,
-//     "2022-11-01": 2115345,
-//     "2022-05-01": 96918,
-//     "2023-03-01": 2509,
-//     "2022-04-01": 49322,
-//     "2022-08-01": 309474,
-//     "2022-02-01": 243519,
-//     "2022-09-01": 280407,
-//     "2023-02-01": 1,
-//     "2023-01-01": 1723,
-//     "2023-05-01": 4413499,
-//     "2022-12-01": 1998771,
-//     "2022-03-01": 361719,
-//     "2023-04-01": 3903591,
-//     "2022-06-01": 49016,
-//   },
-// };
-
 const Header = styled.h3`
   margin-left: 24%;
   margin-top: 2%;
 `;
-// const yTicks = [0, 50000, 100000, 150000, 200000, 445677, 700000, 800000]; // Define your custom y-axis values here
 const convertResultToFormat = (data) => {
   const dataArray = Object.entries(data);
   dataArray.sort((a, b) => (a[0] > b[0] ? 1 : -1));
@@ -72,7 +47,7 @@ const App = () => {
           gameInfo: payload.gameInfo,
         };
 
-        console.log("queryParams",queryParams);
+        console.log("queryParams", queryParams);
         const results = await axios.get(baseUrl, { params: queryParams });
         console.log("api ka result", results.data);
         setResult(results.data);
