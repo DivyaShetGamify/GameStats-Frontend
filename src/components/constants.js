@@ -10,7 +10,7 @@ export const GAMENAMES = {
   MAHJONG_FORTUNE: "Mahjong Fortune",
   GATES_OF_KUNLUN: "Gates of Kunlun",
   SANGUO: "SanGuo - The Brotherhood",
-  MERMAID_TREASURE: "Mermaid's Treasure",
+  // MERMAID_TREASURE: "Mermaid's Treasure",
   LONGEVITY_DRAGON: "Longevity dragon",
   MYSTERIES_OF_PANDORA: "Mysteries of Pandora",
   STEAMPUNK_RELOADED: "Steampunk Reloaded",
@@ -24,5 +24,5 @@ export const GAMENAMES = {
   SUPER_PHOENIX: "Super Phoenix",
   CHASING_LEPRECHAUN_COINS: "Chasing Leprechaun Coins",
   TEMPLE_OF_GODS: "Temple Of Gods",
-  MOCHI_MOCHI: "Mochi Mochi",
+  // MOCHI_MOCHI: "Mochi Mochi",
 };

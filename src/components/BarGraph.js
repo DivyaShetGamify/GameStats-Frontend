@@ -17,6 +17,7 @@ const Container = styled.div`
 
 const BarGraph = ({ data, header, gameInfo }) => {
   console.log(gameInfo);
+
   return (
     <Container>
       <h1>{header}</h1>
@@ -44,10 +45,46 @@ const BarGraph = ({ data, header, gameInfo }) => {
           style={{ fontSize: "10px" }}
           tickFormatter={(value) => `${value}`} // Format Y-axis tick labels
         />
-        <Tooltip />
 
         {data[0].value["profit"] ? (
           <>
+            <Tooltip
+              content={({ payload, label, active }) => {
+                if (active) {
+                  const payoutValue = payload.find(
+                    (entry) => entry.dataKey === "value['payout']"
+                  ).value;
+                  const profitValue = payload.find(
+                    (entry) => entry.dataKey === "value['profit']"
+                  ).value;
+                  // const betAmountValue = payoutValue + profitValue; // Calculate the betAmount
+                  const betAmountValue = payload.find(
+                    (entry) => entry.dataKey === "value['payout']"
+                  ).payload.value.betAmount;
+
+                  return (
+                    <div
+                      style={{
+                        backgroundColor: "#f5f5f5",
+                        border: "1px solid #d5d5d5",
+                        padding: "10px",
+                        fontSize: "14px",
+                      }}
+                    >
+                      <p>{`${label}`}</p>
+                      <p
+                        style={{ color: "#8884d8" }}
+                      >{`Payout: ${payoutValue}`}</p>
+                      <p
+                        style={{ color: "#82ca9d" }}
+                      >{`Profit: ${profitValue}`}</p>
+                      <p>{`Bet Amount: ${betAmountValue}`}</p>
+                    </div>
+                  );
+                }
+                return null;
+              }}
+            />
             <Legend
               verticalAlign="top"
               height={36}
@@ -60,7 +97,10 @@ const BarGraph = ({ data, header, gameInfo }) => {
             <Bar dataKey="value['profit']" fill="#82ca9d" stackId="a" />
           </>
         ) : (
-          <Bar dataKey="value" fill="#8884d8" />
+          <>
+            <Tooltip />
+            <Bar dataKey="value" fill="#8884d8" />
+          </>
         )}
       </BarChart>
     </Container>
