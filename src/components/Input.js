@@ -124,7 +124,7 @@ const Input = ({ onDataReady }) => {
         <Option value="Bet Count">Bet Count</Option>
         <Option value="Player Count">Player Count</Option>
         <Option value="RTP">RTP</Option>
-        <Option value="Bet Amount">Bet Amount - Payout = Profit</Option>
+        <Option value="Bet Amount">Bet Amount | Payout | Profit</Option>
         {/* <Option value="payout">Payout</Option> */}
         {/* <Option value="profit">Profit</Option> */}
       </Select>

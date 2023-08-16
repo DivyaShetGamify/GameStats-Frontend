@@ -6,6 +6,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
+  Legend,
 } from "recharts";
 import styled from "styled-components";
 
@@ -19,8 +20,8 @@ const BarGraph = ({ data, header, gameInfo }) => {
   return (
     <Container>
       <h1>{header}</h1>
-      <BarChart width={1000} height={400} data={data} >
-        <CartesianGrid strokeDasharray="3 3"/>
+      <BarChart width={1000} height={400} data={data}>
+        <CartesianGrid strokeDasharray="3 3" />
         {/* <XAxis dataKey="label" /> */}
         <XAxis
           dataKey="label"
@@ -33,7 +34,7 @@ const BarGraph = ({ data, header, gameInfo }) => {
         {/* <YAxis ticks={yTicks} /> */}
         <YAxis
           // domain={[0, "dataMax"]} // Set the Y-axis domain dynamically
-          domain={['auto', 'auto']}
+          domain={["auto", "auto"]}
           label={{
             value: gameInfo,
             angle: -90,
@@ -54,8 +55,18 @@ const BarGraph = ({ data, header, gameInfo }) => {
           verticalAlign="top"
           align="right"
         /> */}
-        
-        <Bar dataKey="value" fill="#8884d8"  />
+        {/* <Bar dataKey="value" fill="#8884d8"  />  */}
+        {/* {value && <Bar dataKey="value" fill="#8884d8"  />} */}
+
+        {data[0].value["profit"] ? (
+          <>
+            <Legend verticalAlign="top" height={36} payload={[{ value: 'Payout', type: 'line', color: '#8884d8' }, { value: 'Profit', type: 'line', color: '#82ca9d' }]}/>
+            <Bar dataKey="value['payout']" fill="#8884d8" stackId="a" />
+            <Bar dataKey="value['profit']" fill="#82ca9d" stackId="a" />
+          </>
+        ) : (
+          <Bar dataKey="value" fill="#8884d8" />
+        )}
       </BarChart>
     </Container>
   );
