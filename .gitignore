@@ -21,3 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+src/components/styles.css
+src/components/newtest.js
+src/components/test.js
+src/components/finaltest.js
