@@ -66,7 +66,7 @@ const App = () => {
 
       const BetAmount = value.betAmount;
       const Payout = value.payout;
-      const GCR = value.profit;
+      const GGR = value.profit;
       const flag = message.split(" ").slice(1).join(" ");
       // setDynamicDataKey(flag)
       if (flag === "RTP") {
@@ -83,8 +83,8 @@ const App = () => {
         // setDynamicDataKey("playerCount")
         return { label, playerCount };
       } else if (typeof BetAmount !== "undefined") {
-        console.log("testing",{ label, BetAmount, Payout, GCR });
-        return { label, BetAmount, Payout, GCR };
+        console.log("testing",{ label, BetAmount, Payout, GGR });
+        return { label, BetAmount, Payout, GGR };
       }
       // return { label, value };
     });

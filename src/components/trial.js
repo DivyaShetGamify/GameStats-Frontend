@@ -10,7 +10,6 @@ import {
   Label,
 } from "recharts";
 import styled from "styled-components";
-import "./styles.css"; // Import the CSS file
 
 const Container = styled.div`
   margin-top: 5%;
@@ -125,8 +124,8 @@ const BarGraph = ({ header, gameInfo, data, dynamicDataKey }) => {
                   const payoutValue = payload
                     .find((entry) => entry.dataKey === "Payout")
                     .value.toLocaleString();
-                  const gcrValue = payload
-                    .find((entry) => entry.dataKey === "GCR")
+                  const GGRValue = payload
+                    .find((entry) => entry.dataKey === "GGR")
                     .value.toLocaleString();
 
                   return (
@@ -138,7 +137,7 @@ const BarGraph = ({ header, gameInfo, data, dynamicDataKey }) => {
                         Payout: {payoutValue}
                       </div>
                       <div style={{ fontSize: "14px" }}>
-                        GCR: {gcrValue}
+                        GGR: {GGRValue}
                       </div>
                     </>
                   );
@@ -150,12 +149,12 @@ const BarGraph = ({ header, gameInfo, data, dynamicDataKey }) => {
               height={36}
               payload={[
                 { value: "Payout", type: "line", color: "#8884d8" },
-                { value: "GCR", type: "line", color: "#82ca9d" },
+                { value: "GGR", type: "line", color: "#82ca9d" },
               ]}
             />
             {/* <Bar dataKey="BetAmount" fill="#8884d8" stackId="a" /> */}
             <Bar dataKey="Payout" fill="#8884d8" stackId="a" />
-            <Bar dataKey="GCR" fill="#82ca9d" stackId="a" />
+            <Bar dataKey="GGR" fill="#82ca9d" stackId="a" />
           </>
         )}
       </BarChart>
