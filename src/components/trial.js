@@ -7,7 +7,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  Label,
+  // Label,
 } from "recharts";
 import styled from "styled-components";
 
@@ -17,8 +17,8 @@ const Container = styled.div`
 `;
 
 const BarGraph = ({ header, gameInfo, data, dynamicDataKey }) => {
-  console.log(data, "----------data /////////");
-  console.log("hello", dynamicDataKey);
+  // console.log(data, "----------data /////////");
+  // console.log("hello", dynamicDataKey);
 
   return (
     <Container>
@@ -121,23 +121,35 @@ const BarGraph = ({ header, gameInfo, data, dynamicDataKey }) => {
             <Tooltip
               content={({ payload, label, active }) => {
                 if (active) {
+                  const betAmountValue = payload
+                    .find((entry) => entry.dataKey === "BetAmount").value.toLocaleString()
+
                   const payoutValue = payload
                     .find((entry) => entry.dataKey === "Payout")
                     .value.toLocaleString();
                   const GGRValue = payload
                     .find((entry) => entry.dataKey === "GGR")
                     .value.toLocaleString();
+                    // console.log(payload,"00000000-------------");
+                  // const betAmountValue = payload.find(
+                  //   (entry) => entry.dataKey === "BetAmount"
+                  // ).value
+                    // ? payload
+                  //       .find((entry) => entry.dataKey === "BetAmount")
+                  //       .value.toLocaleString()
+                  //   : null;
 
                   return (
                     <>
                       <div style={{ fontSize: "14px", marginBottom: "5px" }}>
                         {label}
                       </div>
-                      <div style={{ fontSize: "14px",marginBottom: "5px" }}>
+                      <div style={{ fontSize: "14px", marginBottom: "5px" }}>
                         Payout: {payoutValue}
                       </div>
+                      <div style={{ fontSize: "14px",marginBottom: "5px" }}>GGR: {GGRValue}</div>
                       <div style={{ fontSize: "14px" }}>
-                        GGR: {GGRValue}
+                        Bet Amount: {betAmountValue}
                       </div>
                     </>
                   );
@@ -152,7 +164,7 @@ const BarGraph = ({ header, gameInfo, data, dynamicDataKey }) => {
                 { value: "GGR", type: "line", color: "#82ca9d" },
               ]}
             />
-            {/* <Bar dataKey="BetAmount" fill="#8884d8" stackId="a" /> */}
+            <Bar dataKey="BetAmount" fill="#8884d8" stackId="a" />
             <Bar dataKey="Payout" fill="#8884d8" stackId="a" />
             <Bar dataKey="GGR" fill="#82ca9d" stackId="a" />
           </>

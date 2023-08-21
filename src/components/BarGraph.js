@@ -16,7 +16,7 @@ const Container = styled.div`
 `;
 
 const BarGraph = ({ data, header, gameInfo }) => {
-  console.log(gameInfo);
+  // console.log(gameInfo);
 
   return (
     <Container>

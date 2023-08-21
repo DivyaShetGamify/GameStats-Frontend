@@ -62,7 +62,7 @@ const Input = ({ onDataReady }) => {
 
   const handleClick = () => {
     onDataReady(payload);
-    console.log(payload);
+    // console.log(payload);
   };
 
   return (
@@ -96,7 +96,7 @@ const Input = ({ onDataReady }) => {
         <Option value="Bet Count">Bet Count</Option>
         <Option value="Player Count">Player Count</Option>
         <Option value="RTP">RTP</Option>
-        <Option value="Bet Amount">Bet Amount | Payout | Profit</Option>
+        <Option value="Bet Amount">Bet Amount | Payout | GGR</Option>
       </Select>
       <Button onClick={handleClick}>Display Graph</Button>
     </Container>
